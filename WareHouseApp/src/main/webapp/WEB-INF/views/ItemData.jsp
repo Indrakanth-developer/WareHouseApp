@@ -112,22 +112,14 @@
 			</div>
 			<div
 				class="card-footer bg bg-dark text-white text-center font-italic font-weight-bolder">
-				Updation Result: ${message} <br /> <a href="reg">Back To Item
+				<indra:if test="${not empty message}">Updation Result: ${message } <br />
+				</indra:if> <a href="reg">Back To Item
 					Registration</a>
 			</div>
 
-
-
 		</div>
 
-
-
 	</div>
-
-
-
-
-
 
 </body>
 </html>

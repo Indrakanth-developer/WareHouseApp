@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.app.charts.ItemCharts;
 import com.app.model.Item;
 import com.app.service.IItemService;
+import com.app.service.IOrderMethodService;
+import com.app.service.IUoMService;
 import com.app.view.ItemExcelView;
 import com.app.view.ItemPdfView;
 
@@ -31,12 +33,21 @@ public class ItemController {
 	@Autowired
 	private ItemCharts charts;
 	
+	//module integration with uom
+	@Autowired
+	private IUoMService uomService;
+	@Autowired
+	private IOrderMethodService orderMethodService;
+	
 	//1. DISPLAY REGISTER PAGE
 	@RequestMapping("/reg")
 	public String itemRegiser(ModelMap map)
 	{
 		//form backing object
 		map.addAttribute("item", new Item());
+		//module integration drop down
+		map.addAttribute("uoms", uomService.getAllUoMs());
+		map.addAttribute("orderMethods", orderMethodService.getAllOrderMethods());
 		//return view name
 		return "ItemRegister";
 	}
@@ -83,6 +94,9 @@ public class ItemController {
 	public String editItem(@RequestParam Integer id,ModelMap map) {
 		//fetch record from db
 		map.addAttribute("item", service.getOneItem(id));
+		//module integration drop down
+		map.addAttribute("uoms", uomService.getAllUoMs());
+		map.addAttribute("orderMethods", orderMethodService.getAllOrderMethods());
 		
 		return "ItemEdit";
 	}
@@ -95,6 +109,7 @@ public class ItemController {
 		service.updateItem(item);
 		//fetch updated db  details to display in ItemData page
 		map.addAttribute("list", service.getAllItems());
+		map.addAttribute("message", "Updated Record Successfully!!");
 		return "ItemData";
 	}
 	

@@ -1,4 +1,5 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <HTML>
 <HEAD>
 <link rel="stylesheet"
@@ -107,6 +108,59 @@
 						</div>
 					</div>
 					<br />
+
+					<!-- ROW 5: MODULE UOM Integration starts here -->
+					<div class="row">
+						<div class="col-4">
+							<label for="uom.id"
+								class="control-label font-weight-bolder font-italic">UoM Model</label>
+						</div>
+						<div class="col-6">
+							<form:select path="uom.id"
+								cssClass="form-control font-weight-bolder font-italic">
+								<form:option value="">--SELECT--</form:option>
+								<form:options items="${uoms}" itemLabel="uomModel"
+									itemValue="id" />
+							</form:select>
+						</div>
+					</div>
+					<br />
+
+
+					<!-- ROW 6: MODULE ORDERMETHOD Integration starts here -->
+					<div class="row">
+						<div class="col-4">
+							<label for="orderMethod.id"
+								class="control-label font-weight-bolder font-italic">Order Code</label>
+						</div>
+						<div class="col-6">
+							<form:select path="orderMethod.id"
+								cssClass="form-control font-weight-bolder font-italic">
+								<form:option value="">--SELECT--</form:option>
+								<form:options items="${orderMethods}" itemLabel="orderCode"
+									itemValue="id" />
+							</form:select>
+						</div>
+					</div>
+					<br />
+
+
+					<!-- ROW 7: Description starts here -->
+					<div class="row">
+						<div class="col-4">
+							<label for="description"
+								class="control-label font-weight-bolder font-italic">Description</label>
+						</div>
+						<div class="col-6">
+							<form:textarea path="description"
+								cssClass="form-control font-weight-bolder font-italic"
+								itemValue="id" />
+						</div>
+					</div>
+					<br />
+
+
+
 					<div class="row">
 						<button class="btn btn-primary">
 							<span class="spinner-grow spinner-grow-sm"></span> Update My
@@ -118,19 +172,9 @@
 			</div>
 
 
-
-			<!-- CARD FOOTER STARTS HERE -->
-			<div
-				class="card-footer bg bg-dark text-white text-center font-italic font-weight-bolder">
-				Updation Result: ${message } <br /> <a href="viewall">Show
-					All Items</a>
-			</div>
-
-
 		</div>
 
 	</div>
-
 
 </BODY>
 </HTML>

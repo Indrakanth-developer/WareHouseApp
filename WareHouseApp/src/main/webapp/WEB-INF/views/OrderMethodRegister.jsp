@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <meta charset="ISO-8859-1">
 <title>@@cReAtE oRDeR mEThOd@@</title>
 </head>
@@ -68,7 +69,8 @@
 								Type</label>
 						</div>
 						<div class="col-6">
-							<form:select path="executionType" cssClass="form-control font-weight-bolder font-italic">>
+							<form:select path="executionType"
+								cssClass="form-control font-weight-bolder font-italic">
 								<form:option value="FIFO">FIFO</form:option>
 								<form:option value="LIFO">LIFO</form:option>
 								<form:option value="FCFO">FCFO (First Created First Out)</form:option>
@@ -85,13 +87,20 @@
 								class="label-control font-weight-bolder font-italic">Order
 								Accept</label>
 						</div>
-						<div class="col-6">
+						<div class="col-6"
+							class="form-control font-weight-bolder font-italic">
 							<form:checkbox path="orderAccept" value="MULTI MODEL" />
-							Multi Model
+							<label for="orderAccept"
+								class="label-control font-weight-bolder font-italic">Multi
+								Model</label>
 							<form:checkbox path="orderAccept" value="ACCEPT RETURN" />
-							Accept Return
+							<label for="orderAccept"
+								class="label-control font-weight-bolder font-italic">Accept
+								Return</label>
 							<form:checkbox path="orderAccept" value="SERVICE EXTEND" />
-							Service Extend
+							<label for="orderAccept"
+								class="label-control font-weight-bolder font-italic">Service
+								Extend</label>
 
 						</div>
 					</div>
@@ -104,29 +113,29 @@
 								class="label-control font-weight-bolder font-italic">Description</label>
 						</div>
 						<div class="col-6">
-							<form:textarea path="description" />
+							<form:textarea path="description" cssClass="label-control font-weight-bolder font-italic"/>
 						</div>
 					</div>
 					<br />
-	<div class="row">
-		<button class="btn btn-primary">
-			<span class="spinner-grow spinner-grow-sm"></span> Create My
-			Order Method!! <span class="spinner-grow spinner-grow-sm"></span>
-		</button>
-	</div>
-
-	</form:form>
-
-					<!-- DIV BODY ENDS HERE -->
-			</div>
-							<!-- CARD FOOTER STARTS HERE -->
-					<div class="card-footer bg bg-dark text-white text-center font-italic font-weight-bolder">
-							Registration Result:	${message }
-					<br/>
-					<a href="viewall">Show All My Order Methods</a>
+					<div class="row">
+						<button class="btn btn-primary">
+							<span class="spinner-grow spinner-grow-sm"></span> Create My
+							Order Method!! <span class="spinner-grow spinner-grow-sm"></span>
+						</button>
 					</div>
 
-			
+				</form:form>
+
+				<!-- DIV BODY ENDS HERE -->
+			</div>
+			<!-- CARD FOOTER STARTS HERE -->
+			<div
+				class="card-footer bg bg-dark text-white text-center font-italic font-weight-bolder">
+				Registration Result: ${message } <br /> <a href="viewall">Show
+					All My Order Methods</a>
+			</div>
+
+
 			<!-- DIV CARD ENDS HERE -->
 		</div>
 		<!-- DIV CONTAINER ENDS HERE -->

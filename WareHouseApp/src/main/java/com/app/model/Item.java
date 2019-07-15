@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +21,14 @@ public class Item {
 	private String itemHeight;
 	private Double baseCost;
 	private String baseCurrency;
+	private String description;
+	
+	//has-a-variable
+	@ManyToOne
+	private UoM uom;
+	
+	@ManyToOne
+	private OrderMethod orderMethod;
 	
 
 	public Item(String itemCode, String itemWidth, String itemLength, String itemHeight, Double baseCost,
@@ -84,8 +93,29 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", itemCode=" + itemCode + ", itemWidth=" + itemWidth + ", itemLength=" + itemLength
-				+ ", itemHeight=" + itemHeight + ", baseCost=" + baseCost + ", baseCurrency=" + baseCurrency + "]";
+				+ ", itemHeight=" + itemHeight + ", baseCost=" + baseCost + ", baseCurrency=" + baseCurrency
+				+ ", description=" + description + ", uom=" + uom + ", orderMethod=" + orderMethod + "]";
 	}
+	public UoM getUom() {
+		return uom;
+	}
+	public void setUom(UoM uom) {
+		this.uom = uom;
+	}
+	public OrderMethod getOrderMethod() {
+		return orderMethod;
+	}
+	public void setOrderMethod(OrderMethod orderMethod) {
+		this.orderMethod = orderMethod;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 
 	
 }
