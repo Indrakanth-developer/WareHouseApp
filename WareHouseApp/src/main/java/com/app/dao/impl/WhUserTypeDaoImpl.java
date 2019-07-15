@@ -57,4 +57,10 @@ public class WhUserTypeDaoImpl implements IWhUserTypeDao {
 	public List<Object[]> getUserTypes() {
 		return (List<Object[]>) ht.find("select userType, count(userType) from  "+WhUserType.class.getName()+"  group by userType");
 	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<WhUserType> getWhUsersByType(String userType) {
+		return (List<WhUserType>) ht.find("from "+WhUserType.class.getName()+"  where userType=?0", userType);
+	}
 }
