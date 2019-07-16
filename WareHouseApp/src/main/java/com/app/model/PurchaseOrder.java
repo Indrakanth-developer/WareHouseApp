@@ -1,10 +1,15 @@
 package com.app.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class PurchaseOrder {
@@ -13,6 +18,7 @@ public class PurchaseOrder {
 	@GeneratedValue
 	private Integer id;
 	
+	private String orderCode;
 	//has-a-variable
 	@ManyToOne
 	private ShipmentType shipmentType;
@@ -25,6 +31,12 @@ public class PurchaseOrder {
 	@Column(name="purchase_status")
 	private String status;
 	private String description;
+	
+	//purchaseDetail has-a
+	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	private List<PurchaseDetails> purchaseDetails;
+	
+	
 	public PurchaseOrder() {
 		super();
 		status="OPEN";
@@ -77,9 +89,21 @@ public class PurchaseOrder {
 	}
 	@Override
 	public String toString() {
-		return "PurchaseOrder [id=" + id + ", shipmentType=" + shipmentType + ", whVendor=" + whVendor
-				+ ", referenceNumber=" + referenceNumber + ", qualityCheck=" + qualityCheck + ", status=" + status
-				+ ", description=" + description + "]";
+		return "PurchaseOrder [id=" + id + ", orderCode=" + orderCode + ", shipmentType=" + shipmentType + ", whVendor="
+				+ whVendor + ", referenceNumber=" + referenceNumber + ", qualityCheck=" + qualityCheck + ", status="
+				+ status + ", description=" + description + ", purchaseDetails=" + purchaseDetails + "]";
+	}
+	public String getOrderCode() {
+		return orderCode;
+	}
+	public void setOrderCode(String orderCode) {
+		this.orderCode = orderCode;
+	}
+	public List<PurchaseDetails> getPurchaseDetails() {
+		return purchaseDetails;
+	}
+	public void setPurchaseDetails(List<PurchaseDetails> purchaseDetails) {
+		this.purchaseDetails = purchaseDetails;
 	}
 	
 	

@@ -33,7 +33,7 @@
 							<form:radiobutton path="userType" cssClass="radio-inline" value="Customer"/>Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							</div>
 						</div>						
-						
+						<br/>
 						<!-- ROW 2: USER CODE starts here -->
 						<div class="row">
 							<div class="col-4">
@@ -43,7 +43,7 @@
 								<form:input path="userCode" cssClass="form-control font-weight-bold font-italic"></form:input>								
 							</div>
 						</div>
-						<br/>
+						
 						
 						
 						<br/>
@@ -62,7 +62,6 @@
 								</form:select>
 							</div>							
 						</div>
-						<br/>
 						<br/>
 						
 						
@@ -107,7 +106,6 @@
 							</div>							
 						</div>
 						<br/>
-						<br/>
 												
 						
 						<!-- ROW 7: ID NUMBER TYPE starts here -->
@@ -120,7 +118,6 @@
 							</div>							
 						</div>
 						<br/>
-						<br/>						
 						
 						<div class="row">
 						<button class="btn btn-primary">
